@@ -9,9 +9,6 @@
 <body>
 
 
-
-
-
 <h1>Twin Prime Conjecture</h1>
 
 <p>Are there infinitely many primes \(p\) such that \(p+2\) is also prime.</p>
@@ -82,44 +79,96 @@ has two possible cases \(m_1 = m_2\) and \(m_1 \neq m_2\)</p>
 <p>numbers divisible by 23: </p>
 <p>numbers divisible by 29: 551</p>
 <p>It is possible to determine a prime number exist in \(\{mP_3+11\}\) where \(0 \leq m &lt; P_3\)
-    without calculating this set of numbers: \(\{161,371,581,791,11,341, 671, 221, 611,221,731,551,551\}\)?</p>
+    without explicitly calculating the set of composite numbers: \(\{161,371,581,791,341, 671, 221, 611,221,731,551,551\}\)?
+    <br/>
+And where \(m_1P_3+11\) is prime is \(m_1P_3+13\) also a prime where \(0 \leq m &lt; P_3\)?
+</p>
+<p>A method to implicitly count composite numbers for two arithmetic progressions</p>
+<p>True for all the terms in an arithmetic progression \(\{mP_n + a\}\) where \(a\) in \(A_n\) and \(a &lt; P_n\) and \(a\) relatively prime to \(P_n\):
+    <br/>
 
-<p>Make a mask for composite number divisible by 29 for \(\{mP_3+11\}\) where \(0 \leq m &lt; P_3\).
-  <br/>
-  Doing the calculation we know there exist only one composite divisible by 29: \(551=18 \times P_3 + 11\).
-  <br/>
-  But we do not have this luxury.
-  <br/>
-  All we know now is that in 29 consective elements of \(\{mP_3+11\}\) where \(x \leq m &lt; (x+29)\). 
-  There is either unique \(m_1P_3+11\) divisible by 29 or
-  all 29 consective elements are not divisible by 29.
-   <br/>
-    Assume worst case scenario there exist two numbers divisible by 29 in \(\{mP_3+11\}\) where \(0 \leq m &lt; P_3\).
+    If there exist \(m_1P_n+a_1\) in \(\{mP_n+a_1\}\) such that \(m_1P_n+a_1\) is divisible by \(f\) 
     <br/>
-    Assume \(0 \times P_3+11\) and \(29 \times P_3+11\) are divisible by 29.
+    Then this is the set \(\{(m_1+xf)P_n+a_1\}\) of all elements divisible by \(f\) in \(\{mP_n+a_1\}\)
     <br/>
-    Assume \(m \times P_3+11\) where \(0 &lt; m &lt; 29\) are not divisible by 29.
-    <br/>
-    It is like adjusting 30 numbers between 551 and 1421 in \(\{mP_3+11\}\) where 551 and 1421 are actually divisible by 29: \(551=18 \times P_3 + 11\) and \(1421=(18 + 29) \times P_3 + 11\).
-    <br/>
-    \(11 = 551-540 , 41 = 581-540, 71 = 611-540, 101 = 641-540, \ldots\)</p>
-<p>Combining two masks for composite number divisible by 29  for \(\{mP_3+11\}\) where \(0 \leq m &lt; P_3\) and  for \(\{mP_3+13\}\) where \(0 \leq m &lt; P_3\).
-    <br/>
-    
-  All we know now is that in 29 consective elements of \(\{mP_3+13\}\) where \(x \leq m &lt; (x+29)\). 
-  There is either unique \(m_1P_3+13\) divisible by 29 or
-  all 29 consective elements are not divisible by 29.
-  <br/>
-    Assume worst case scenario there is unique \(m_1P_n+13\) divisible by 29 in \(\{mP_3+13\}\) where \(x \leq m &lt; (P_3-1+x)\) 
-
-   <br/>
-   and \(m_1 \neq 0\) and \(m_1 \neq 29\) where we assume \(0 \times P_3+11\) and \(29 \times P_3+11\) are divisible by 29.
-
 </p>
 <p>
-    Base Case:
+    In arithmetic progression \(mP_3+11\) the number \(161\) is divisible by \(7\).
     <br/>
-    Now we can say of pairs \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) where \(m_1=m_2\) and \(a_1+d=a_2\) and \(m_1P_n+a_1\) in \(\{mP_n +a_1\}\) and \(m_2P_n+a_1\) in \(\{mP_n+a_2\}\) and \(0 \leq m &lt; P_n\) ,
+    \(161 = 5 \times P_3 + 11\)
+    <br/>
+    This also means the six terms before it and the six terms after it are not divisible by \(7\).
+    <br/>
+    For each value of \(x\) pick 7 consective numbers from arithmetic progression \(mP_3+11\) where \(x \leq m &lt; x+7\).
+    <br/>
+    Listing the numbers in order as symbols where \(x\) is a number divisible by \(7\) and \(n\) is a number not divisible by \(7\)
+     there are only \(7\) possible outcomes:
+    <br/>
+    \(x,n,n,n,n,n,n\)
+    <br/>
+    \(n,x,n,n,n,n,n\)
+    <br/>
+    \(n,n,x,n,n,n,n\)
+    <br/>
+    \(n,n,n,x,n,n,n\)
+    <br/>
+    \(n,n,n,n,x,n,n\)
+    <br/>
+    \(n,n,n,n,n,x,n\)
+    <br/>
+    \(n,n,n,n,n,n,x\)
+    <br/>
+    They all convey one number divisible by 7 and 6 numbers not divisible by 7.
+    <br/>
+    Repeat for each value of \(x\) pick 7 consective numbers from arithmetic progression \(mP_3+13\) where \(x \leq m &lt; x+7\).
+    <br/>
+    Listing the numbers in order as symbols where \(y\) is a number divisible by \(7\) and \(n\) is a number not divisible by \(7\)
+     there are only \(7\) possible outcomes:
+    <br/>
+    \(y,n,n,n,n,n,n\)
+    <br/>
+    \(n,y,n,n,n,n,n\)
+    <br/>
+    \(n,n,y,n,n,n,n\)
+    <br/>
+    \(n,n,n,y,n,n,n\)
+    <br/>
+    \(n,n,n,n,y,n,n\)
+    <br/>
+    \(n,n,n,n,n,y,n\)
+    <br/>
+    \(n,n,n,n,n,n,y\)
+    <br/>
+    They all convey one number divisible by 7 and 6 numbers not divisible by 7.
+    <br/>
+    Can combine the two mask together where the symbols of \(x\) and \(y\) do not overlap to represent worst case scenario 
+    the two numbers divisible by \(7\) do not occur on the same term for the two arithmetic progressions.
+    <br/>
+    for example :
+    <br/>
+    \(n,n,n,n,n,x,y\)
+    <br/>
+    Therefore can conclude at least 5 pairs of numbers which differ by 2 in \(mP_3+11\) and \(mP_3+13\) where \(x \leq m &lt; (x+7)\)
+    and where every number in each of the 5 pairs are not divisible by \(7\).
+</p>
+<p>
+    A method to implicitly count all composite numbers for two arithmetic progressions
+</p>
+<p>First have to find a breakpoint where the number of terms in generated from arithmetic progression is greater than \(f\) where 
+    if the term is a composite it has to be divisible by odd number greater than or equal to 3 and less than or equal to \(f\)
+
+<br/>
+This is the largest number \((P_n-1) \times P_n + (P_n-1)\) in arithmetic progression \(\{mP_n+a\}\) where \(0 \leq m &lt; P_n\) and \(a &lt; P_n\)
+and \(a\) is relatively prime to \(P_n\).
+<br/>
+The the number of terms generated in arithmetic progression is \(P_n\) and if the term is a composite it has to be divisible by odd number 
+greater than or equal to 3 and less than or equal to \(P_n-1\)
+</p>
+
+
+<p> Base Case:
+    <br/>
+    The set of  pairs \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) where \(m_1=m_2\) and \(a_1+d=a_2\) and \(m_1P_n+a_1\) in \(\{mP_n +a_1\}\) and \(m_2P_n+a_1\) in \(\{mP_n+a_2\}\) and \(0 \leq m &lt; P_n\) ,
     <br/>
     There must exist at least \(P_n-1-2\) pairs of \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) 
     where both numbers in the pair are not divisible by \(P_n-1\).
@@ -127,62 +176,21 @@ has two possible cases \(m_1 = m_2\) and \(m_1 \neq m_2\)</p>
 </p>
 
 <p>Induction:
-<br/>
-All composites in \(\{mP_n+a_1\}\) must be divisible by an odd number greater than or equal to \(3\) and less than or equal to \(P_n-1\).  
-<br/>
-All composites in \(\{mP_n+a_2\}\) must be divisible by an odd number greater than or equal to \(3\) and less than or equal to \(P_n-1\).
+    There must exist \(x-2\) pairs in \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) where both numbers in a pair are not divisible by \(x\) and \(f \leq m &lt; (f+x) \).
+    <br/>
+    Assume worst case scenario that of the remaining \(x-2\) pairs in \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) where both numbers in a pair are not divisible by \(x\) there exist terms in pairs which are divisible by \(x-2\).
+    <br/>
+    Assume worst case scenario that the remaining \(x-2\) pairs in \(\{(m_1P_n+a_1,m_2P_n+a_2)\}\) where both numbers in a pair are not divisible by \(x\) 
+    <br/>
+    are sequential  \(f \leq m &lt; (f+x-2) \) 
+    <br/>
+    ensuring the 2 terms which were divisible by \(x-2\) do not overlap terms which are divisible by \(x-2-2\) when repeating this induction.
+    <br/>
+    Leaving \(1\) pair of numbers \(\{(q_1,q_2)\}\) not divisible by \(3\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((f) \leq m &lt; (f+1)\).
+    <br>
+    This must be a pair of prime numbers (q_1,q_2).
 
-<br/>
 
-If there exist \(m_1P_n+a_1\) in \(\{mP_n+a_1\}\) such that \(m_1P_n+a_1\) is divisible by \(f\) 
-<br/>
-Then this is the set \(\{(m_1+xf)P_n+a_1\}\) of all elements divisible by \(f\) in \(\{mP_n+a_1\}\)
-<br/>
-If there exist \(m_2P_n+a_2\) in \(\{mP_n+a_2\}\) such that \(m_2P_n+a_2\) is divisible by \(f\) 
-<br/>
-Then this is the set \(\{(m_2+xf)P_n+a_2\}\) of all elements divisible by \(f\) in \(\{mP_n+a_2\}\)
-
-<br/>
-
-Take \(P_n-1\) pairs of numbers \(\{(q_1,q_2)\}\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1)\)
-<br/>
-Assume there is unique \(m_1P_n+a_1\) divisible by \((P_n-1)\) in \(\{mP_n+a_1\}\).
-<br/>
-Assume there is unique \(m_2P_n+a_2\) divisible by \((P_n-1)\) in \(\{mP_n+a_2\}\).
-<br/>
-Leaving \(P_n-1-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1)\)
-<br/>
-Assume the remaining \(P_n-1-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1\) are sequential.
-<br/>
-Therefore there exist \(P_n-1-2\) pairs of numbers \(\{(q_1,q_2)\}\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1-2)\).
- <br/>
-Assume there is unique \(m_1P_n+a_1\) divisible by \((P_n-1-2)\) in \(\{mP_n+a_1\}\).
-<br/>
-Assume there is unique \(m_2P_n+a_2\) divisible by \((P_n-1-2)\) in \(\{mP_n+a_2\}\).
-<br/>
-Leaving \(P_n-1-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1-2\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1-2)\)
-<br/>
-Assume the remaining \(P_n-1-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1-2\) are sequential.
-<br/>
-Therefore there exist \(P_n-1-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1-2-2)\).
-<br/>
-Assume there is unique \(m_1P_n+a_1\) divisible by \((P_n-1-2-2)\) in \(\{mP_n+a_1\}\).
-<br/>
-Assume there is unique \(m_2P_n+a_2\) divisible by \((P_n-1-2-2)\) in \(\{mP_n+a_2\}\).
-<br/>
-Leaving \(P_n-1-2-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1-2-2\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1-2-2)\)
-<br/>
-Assume the remaining \(P_n-1-2-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) not divisible by \(P_n-1-2-2\) are sequential.
-<br/>
-Therefore there exist \(P_n-1-2-2-2\) pairs of numbers \(\{(q_1,q_2)\}\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+P_n-1-2-2-2)\).
-
-<br/>
-\(\dots\)
-<br/>
-
-Leaving \(1\) pair of numbers \(\{(q_1,q_2)\}\) not divisible by \(3\) where  \(q_1\) in \(\{mP_n +a_1\}\) and \(q_2\) in \(\{mP_n+a_2\}\) where \((x) \leq m &lt; (x+1)\).
-
-Therefore \(q_1,q_2\) must be both prime numbers.
 
  </p>
     
